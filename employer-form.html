@@ -6,124 +6,129 @@
   <title>Post a Job | OilJob</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .form-wrapper {
-      max-width: 700px;
-      margin: 3rem auto;
-    }
-    
-    .form-header {
+    .page-header {
+      padding: 4rem 0 2rem;
       text-align: center;
-      margin-bottom: 2.5rem;
     }
     
-    .form-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    .page-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
     }
     
-    .form-header p {
+    .page-header p {
+      font-size: 1.25rem;
       color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-wrapper {
+      max-width: 800px;
+      margin: 2rem auto 6rem;
     }
     
-    .form-row {
+    .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     textarea.form-control {
       resize: vertical;
-      min-height: 120px;
+      min-height: 150px;
     }
 
-    .submit-btn-wrapper {
-      margin-top: 2rem;
-      text-align: right;
-    }
-
-    @media (max-width: 600px) {
-      .form-row {
+    @media (max-width: 768px) {
+      .form-grid {
         grid-template-columns: 1fr;
         gap: 0;
       }
+      .page-header h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header class="header">
-      <a href="index.html" class="logo">Oil<span>Job</span></a>
+      <a href="index.html" class="logo">WTX<span>Connect</span></a>
+      <nav>
+        <a href="index.html" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Back Home</a>
+      </nav>
     </header>
 
-    <main class="form-wrapper animate-fade-in">
-      <div class="form-header">
-        <h1>Post a Position</h1>
-        <p>Tell us about the role you are looking to fill.</p>
-      </div>
+    <div class="page-header animate-fade-in">
+      <h1>Find Your Next Crew</h1>
+      <p>Post your open oilfield positions and connect with the most reliable hands in the Permian Basin.</p>
+    </div>
 
+    <main class="form-wrapper animate-fade-in delay-1">
       <div class="glass-card">
         <form id="employer-form" onsubmit="handleFormSubmit(event)">
           
-          <div class="form-row">
+          <div class="form-grid">
             <div class="form-group">
-              <label class="form-label" for="company">Company Name *</label>
-              <input type="text" id="company" class="form-control" required placeholder="e.g. Apex Energy">
+              <label class="form-label" for="company">Company Name</label>
+              <input type="text" id="company" class="form-control" required placeholder="e.g. Permian Drilling Co">
             </div>
             <div class="form-group">
-              <label class="form-label" for="location">Location *</label>
-              <input type="text" id="location" class="form-control" required placeholder="e.g. Houston, TX or Remote">
+              <label class="form-label" for="location">Job Location</label>
+              <input type="text" id="location" class="form-control" required placeholder="e.g. Odessa, TX">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="roleTitle">Job Title *</label>
-            <input type="text" id="roleTitle" class="form-control" required placeholder="e.g. Senior Petroleum Engineer">
+            <label class="form-label" for="roleTitle">Position Title</label>
+            <input type="text" id="roleTitle" class="form-control" required placeholder="e.g. Senior Roughneck / Driller">
           </div>
 
-          <div class="form-row">
+          <div class="form-grid">
             <div class="form-group">
-              <label class="form-label" for="jobType">Job Type *</label>
-              <select id="jobType" class="form-control" required style="appearance: none;">
-                <option value="" disabled selected>Select an option</option>
+              <label class="form-label" for="jobType">Employment Type</label>
+              <select id="jobType" class="form-control" required>
+                <option value="" disabled selected>Select type</option>
                 <option value="full-time">Full Time</option>
                 <option value="contract">Contractor</option>
-                <option value="part-time">Part Time</option>
+                <option value="rotational">Rotational (2/1, 2/2)</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label" for="salary">Estimated Salary ($) *</label>
-              <input type="text" id="salary" class="form-control" required placeholder="e.g. $120,000 - $150,000">
+              <label class="form-label" for="salary">Compensation Range</label>
+              <input type="text" id="salary" class="form-control" required placeholder="e.g. $100k - $120k + Per Diem">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="description">Job Description *</label>
-            <textarea id="description" class="form-control" required placeholder="Briefly describe the responsibilities and requirements..."></textarea>
+            <label class="form-label" for="description">Detailed Description</label>
+            <textarea id="description" class="form-control" required placeholder="Outline the responsibilities, schedule, and any required certifications (H2S, PEC/Safeland, etc.)"></textarea>
           </div>
 
-          <div class="submit-btn-wrapper">
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Create Listing & View Dashboard</button>
-          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+            Launch Job Posting Listing
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
         </form>
       </div>
     </main>
   </div>
 
-  <script src="js/main.js"></script>
+  <footer style="padding: 4rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+    <p>&copy; 2026 OilJob Platform. Built for the Permian Basin.</p>
+  </footer>
+
   <script>
     function handleFormSubmit(e) {
       e.preventDefault();
-      // Mock saving data
       const btn = e.target.querySelector('button[type="submit"]');
-      const originalText = btn.innerText;
-      btn.innerText = "Processing...";
+      const originalContent = btn.innerHTML;
+      btn.innerHTML = 'Processing...';
       btn.style.opacity = '0.7';
       btn.disabled = true;
 
       setTimeout(() => {
-        // Redirect to dashboard
         window.location.href = 'employer-dashboard.html';
-      }, 800);
+      }, 1000);
     }
   </script>
 </body>

@@ -102,7 +102,7 @@ function simulateBotResponse(text, delay = 800, isHTML = false, extraClasses = '
 
 // Initial Greeting
 document.addEventListener('DOMContentLoaded', () => {
-  simulateBotResponse("Hello! I'm your OilJob AI Career Assistant. I'm here to help you build a professional resume. To get started, what is your name?", 800);
+  simulateBotResponse("Hello! I'm your WTX Connect AI Career Assistant. I'm here to help you build a professional resume. To get started, what is your name?", 800);
 });
 
 chatForm.addEventListener('submit', (e) => {
