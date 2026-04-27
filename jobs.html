@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Jobs | OilJob</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .jobs-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+      min-height: calc(100vh - 120px);
+    }
+    
+    .filters-panel {
+      padding: 1.5rem;
+      height: fit-content;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .filter-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-group h3 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .filter-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .filter-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary);
+    }
+
+    .jobs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .job-card {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .company-logo {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .job-details h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .job-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .job-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      color: var(--text-main);
+    }
+
+    .job-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+    
+    .salary {
+      font-weight: 600;
+      color: #00f0ff;
+    }
+
+    @media (max-width: 900px) {
+      .jobs-layout {
+        grid-template-columns: 1fr;
+      }
+      .filters-panel {
+        position: static;
+      }
+      .job-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+      .job-action {
+        align-items: center;
+        width: 100%;
+      }
+      .job-action .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="index.html" class="logo">Oil<span>Job</span></a>
+      <div style="display:flex; align-items:center; gap: 1rem;">
+        <div style="width:40px; height:40px; border-radius:50%; background:var(--secondary); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-family:var(--font-display)">JS</div>
+      </div>
+    </header>
+
+    <div class="jobs-layout animate-fade-in">
+      <aside class="glass-card filters-panel">
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Filters</h2>
+        
+        <div class="filter-group">
+          <h3>Job Type</h3>
+          <label class="filter-label"><input type="checkbox" checked> Full Time</label>
+          <label class="filter-label"><input type="checkbox"> Contractor</label>
+          <label class="filter-label"><input type="checkbox"> Part Time</label>
+        </div>
+
+        <div class="filter-group">
+          <h3>Location Preference</h3>
+          <label class="filter-label"><input type="checkbox" checked> Remote</label>
+          <label class="filter-label"><input type="checkbox" checked> On-site</label>
+          <label class="filter-label"><input type="checkbox"> Hybrid</label>
+        </div>
+
+        <div class="filter-group">
+          <h3>Sectors</h3>
+          <label class="filter-label"><input type="checkbox"> Upstream</label>
+          <label class="filter-label"><input type="checkbox"> Midstream</label>
+          <label class="filter-label"><input type="checkbox" checked> Downstream</label>
+        </div>
+      </aside>
+
+      <main class="jobs-list">
+        
+        <div class="glass-card job-card delay-1 animate-fade-in">
+          <div class="company-logo">EV</div>
+          <div class="job-details">
+            <h2>Drilling Engineer</h2>
+            <div class="job-meta">Ensign Ventures • Houston, TX (Hybrid)</div>
+            <div class="job-tags">
+              <span class="tag">Upstream</span>
+              <span class="tag">Mid-Level</span>
+              <span class="tag">Full Time</span>
+            </div>
+          </div>
+          <div class="job-action">
+            <span class="salary">$130k - $160k</span>
+            <button class="btn btn-primary" onclick="alert('Application submitted based on your profile!')">Easy Apply</button>
+          </div>
+        </div>
+
+        <div class="glass-card job-card delay-2 animate-fade-in">
+          <div class="company-logo" style="color: var(--secondary)">NR</div>
+          <div class="job-details">
+            <h2>Reservoir Geoscientist</h2>
+            <div class="job-meta">Nova Resources • Calgary, AB</div>
+            <div class="job-tags">
+              <span class="tag">Modeling</span>
+              <span class="tag">Senior</span>
+              <span class="tag">Full Time</span>
+            </div>
+          </div>
+          <div class="job-action">
+            <span class="salary">$150k - $180k</span>
+            <button class="btn btn-primary" onclick="alert('Application submitted based on your profile!')">Easy Apply</button>
+          </div>
+        </div>
+
+        <div class="glass-card job-card delay-3 animate-fade-in">
+          <div class="company-logo" style="color: #ffaa00">OP</div>
+          <div class="job-details">
+            <h2>Pipeline Safety Inspector</h2>
+            <div class="job-meta">Orion Pipeline • Remote</div>
+            <div class="job-tags">
+              <span class="tag">Midstream</span>
+              <span class="tag">Entry-Level</span>
+              <span class="tag">Contractor</span>
+            </div>
+          </div>
+          <div class="job-action">
+            <span class="salary">$90k - $110k</span>
+            <button class="btn btn-primary" onclick="alert('Application submitted based on your profile!')">Easy Apply</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

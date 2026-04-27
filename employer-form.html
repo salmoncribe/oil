@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post a Job | OilJob</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .form-wrapper {
+      max-width: 700px;
+      margin: 3rem auto;
+    }
+    
+    .form-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .form-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-header p {
+      color: var(--text-muted);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn-wrapper {
+      margin-top: 2rem;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="index.html" class="logo">Oil<span>Job</span></a>
+    </header>
+
+    <main class="form-wrapper animate-fade-in">
+      <div class="form-header">
+        <h1>Post a Position</h1>
+        <p>Tell us about the role you are looking to fill.</p>
+      </div>
+
+      <div class="glass-card">
+        <form id="employer-form" onsubmit="handleFormSubmit(event)">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="company">Company Name *</label>
+              <input type="text" id="company" class="form-control" required placeholder="e.g. Apex Energy">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="location">Location *</label>
+              <input type="text" id="location" class="form-control" required placeholder="e.g. Houston, TX or Remote">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="roleTitle">Job Title *</label>
+            <input type="text" id="roleTitle" class="form-control" required placeholder="e.g. Senior Petroleum Engineer">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="jobType">Job Type *</label>
+              <select id="jobType" class="form-control" required style="appearance: none;">
+                <option value="" disabled selected>Select an option</option>
+                <option value="full-time">Full Time</option>
+                <option value="contract">Contractor</option>
+                <option value="part-time">Part Time</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="salary">Estimated Salary ($) *</label>
+              <input type="text" id="salary" class="form-control" required placeholder="e.g. $120,000 - $150,000">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="description">Job Description *</label>
+            <textarea id="description" class="form-control" required placeholder="Briefly describe the responsibilities and requirements..."></textarea>
+          </div>
+
+          <div class="submit-btn-wrapper">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Create Listing & View Dashboard</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      // Mock saving data
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalText = btn.innerText;
+      btn.innerText = "Processing...";
+      btn.style.opacity = '0.7';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        // Redirect to dashboard
+        window.location.href = 'employer-dashboard.html';
+      }, 800);
+    }
+  </script>
+</body>
+</html>
